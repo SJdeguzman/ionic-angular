@@ -1,0 +1,41 @@
+
+  <div  *ngIf=" user != true">
+      <h3 style='text-align: center; font-weight: bold;'>
+        You are not authorized to view this page. Kindly log in as Administrator.</h3>
+      <button  class="btn btn-md  btn-info"  style="background-color:#e75480; margin-left: 45%" 
+        routerLink="/login" > Go to login </button>
+  </div>
+
+      <ion-grid  >
+        <ion-row>
+          <ion-col size-xs="10" offset-md="1">
+            <ion-card color="light" *ngIf=" user == true ">
+              <ion-card-header>
+                <ion-card-title>
+                  List of Survey
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <table class="table table-striped text-center" >
+                  <thead>
+                    <tr>
+                       <th class="text-center" scope="col">Name</th>
+                       <th class="text-center" scope="col">Email</th>
+                       <th class="text-center" scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor = "let survey of surveys; let i = index"  >
+                      <td>{{survey.name}}</td>
+                      <td>{{survey.email}}</td>
+                      <td><button  class="btn btn-success btn-md"  [routerLink]="['/survey-form/', survey.id]"> Edit</button>&nbsp;</td> 
+                    </tr>
+                  </tbody>
+                </table>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+         
+  

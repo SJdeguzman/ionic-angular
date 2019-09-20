@@ -1,0 +1,41 @@
+
+<div class="container-fluid padding"  style="margin-top:5%">
+    <div class="row padding">
+      <div text-center  style=" margin-left: 35%" >
+        <div class="card bg-light"  style="width:150%">
+          <div width="10px" text-center>
+            <h2 style="color:#e75480"> SBshoes </h2>
+          </div>
+          <div class="card-body">
+            <p class="card-text" text-center>Login your account</p>
+            <form [formGroup]="loginForm" (ngSubmit)='onSubmit()'>
+              
+                <label ><b>UserName</b></label>
+                <input 
+                class="form-control" 
+                required
+                formControlName="username"
+                minlength="6">
+
+                <label ><b>Password</b> </label>
+                <input
+                 class="form-control"
+                 type="password"
+                 required
+                 formControlName="password"
+                 minlength="6">
+            
+                <br>
+                <button class="btn btn-md btn-block btn-info" style="background-color:#e75480" 
+                     type="submit" [disabled]="!loginForm.valid">Login</button> 
+                <button class="btn btn-md btn-block btn-info"  style="background-color:#e75480"
+                     routerLink="/survey-form" > Survey </button>
+            </form>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+  

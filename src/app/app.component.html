@@ -1,0 +1,30 @@
+<!------Navigation --->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" ><img src="https://png.pngtree.com/png_detail/20181017/pink-high-heels-png-clipart_1777124.png"
+     height="30px"> SBshoes</a>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive"*ngIf = "user == true">
+      <ul class="navbar-nav ml-auto" >
+        <li class="nav-item "> 
+          <a class="nav-link"  routerLinkAcive="active" > </a>
+        </li>
+        <li class="nav-item "> 
+          <a class="nav-link"  routerLinkAcive="active" routerLink="/survey-list"> List</a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link" routerLinkAcive="active" routerLink="/survey-report" > Graph</a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link" routerLinkAcive="active" routerLink="/survey-form" > Create Survey</a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link" (click)="logout()"> Logout</a>
+        </li>
+      </ul>
+    </div>
+  
+  </div>
+</nav> 
+
+   <router-outlet></router-outlet>

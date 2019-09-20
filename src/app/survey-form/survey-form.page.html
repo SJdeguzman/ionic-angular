@@ -1,0 +1,147 @@
+
+<div text-center>
+    <h1><img src="https://png.pngtree.com/png_detail/20181017/pink-high-heels-png-clipart_1777124.png"
+       height="50px"> Survey Questions
+    </h1>
+    <p> SBshoes Company would like to hear your thoughts regarding our recently introduced product. We value your feedback so much.
+        Please take your time to complete this survey. 
+    </p>
+</div>
+
+<form #f="ngForm" (ngSubmit)="save(f.value)" >
+  <div class = "box0">
+    <table style="margin: auto">
+      <tr >
+        <td>
+            <div class="form-group" >
+                <label for="name"> Name</label>
+                    <input 
+                      type="text"
+                      id="name"
+                      class="form-control"
+                      [(ngModel)]="survey.name"
+                      name="name"
+                      required
+                      #name="ngModel">
+                  <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                    Name is required
+                  </div>
+            </div>
+        </td> &nbsp;&nbsp;&nbsp;&nbsp;
+        <td>
+            <div class="form-group">
+                <label for="email"> Email</label>
+                  <input 
+                    type="text"
+                    id="email"
+                    class="form-control"
+                    [(ngModel)]="survey.email"
+                    name="email"
+                    required
+                    #email="ngModel">
+                    <div class="alert alert-danger" *ngIf="email.touched && name.invalid">
+                      Email is required
+                    </div>
+            </div>
+        </td>
+      </tr>
+      <tr>
+          <button class="btn btn-md btn-block btn-info"  style="background-color:#e75480 ; " 
+              (click)='onGenerateDateAndTime()' type="button">Generate Date and Time</button>
+              <input
+              [value]='dateAndTime' 
+              class="form-control" >
+      </tr>
+    </table>
+  </div>
+
+  <table text-center>
+    <tr>
+      <td>
+        <div class="box2">
+          <h6>1. Have you ever buy a product from SBshoes Company ?</h6>
+            <div>
+                <label class="radio-inline"> 
+                  <input type="radio" id="answers" value="yes" name="one" [(ngModel)]="survey.one" required >
+                    Yes </label> |
+                <label class="radio-inline"> 
+                  <input type="radio" id="answers" value="no" name="one" [(ngModel)]="survey.one" >
+                    No</label>
+            </div>
+        </div>
+      </td>
+      <td>
+        <div class = "box1">
+          <h6>2. All in all, how would you rate SBshoes Company ?</h6>
+            <div>
+                <label class="radio-inline"> 
+                  <input type="radio" value="Excellent" name="two" [(ngModel)]="survey.two" required>
+                    Excellent</label> |
+                <label class="radio-inline"> 
+                  <input type="radio" value="Good" name="two" [(ngModel)]="survey.two" >
+                     Good </label> |
+                <label class="radio-inline"> 
+                  <input type="radio" value="Average" name="two" [(ngModel)]="survey.two" >
+                     Avarage</label> |
+                <label class="radio-inline"> 
+                  <input type="radio" value="Poor" name="two" [(ngModel)]="survey.two" >
+                     Poor</label> |
+                <label class="radio-inline"> 
+                  <input type="radio" value="Extremely Poor" name="two" [(ngModel)]="survey.two" >
+                     Extremely Poor</label> 
+            </div>
+         </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+          <div class="box2">
+            <h6>3. Rate your overall satisfaction with the products you used from SBshoes Company? </h6>
+              <label class="radio-inline"> 
+                <input type="radio" value="Extremely Satisfied" name="three" [(ngModel)]="survey.three" required>
+                  Extremely Satisfied</label> |
+              <label class="radio-inline"> 
+                <input type="radio" value="Satisfied" name="three" [(ngModel)]="survey.three" >
+                  Satisfied </label> |
+              <label class="radio-inline"> 
+                <input type="radio" value="Neutral" name="three" [(ngModel)]="survey.three" >
+                   Nuetral</label> |
+              <label class="radio-inline"> 
+                <input type="radio" value="Dissatisfied" name="three" [(ngModel)]="survey.three" >
+                   Dissatisfied </label> |
+              <label class="radio-inline"> 
+                <input type="radio" value="Extremely  Dissatisfied" name="three" [(ngModel)]="survey.three" >
+                   Extremely  Dissatisfied</label> 
+          </div>
+      </td>
+      <td>
+          <div class="box1">
+              <h6>4.How would you rate the new designed shoes of the SBshoes Company ? </h6>
+                <label class="radio-inline"> 
+                  <input type="radio" value="Very Good" name="four" [(ngModel)]="survey.four" required>
+                    Very Good</label> |
+                <label class="radio-inline"> 
+                  <input type="radio" value="Good" name="four" [(ngModel)]="survey.four" >
+                    Good</label> |
+                <label class="radio-inline"> 
+                  <input type="radio" value="Fair" name="four" [(ngModel)]="survey.four" >
+                    Fair</label> |
+                <label class="radio-inline"> 
+                  <input type="radio" value="Poor" name="four" [(ngModel)]="survey.four" >
+                     Poor</label> |
+                <label class="radio-inline"> 
+                  <input type="radio" value="Very Poor" name="four" [(ngModel)]="survey.four" >
+                     Very Poor</label> 
+          </div>
+      </td>
+    </tr>
+  </table>   
+     <br>
+
+  <div text-center>
+      <button class="btn btn-primary" style="background-color:#e75480 ; " [disabled] ="f.invalid"> Save</button> |
+      <button type="button" style="background-color:#e75480 ; " (click)="onClear(f)" class="btn btn-success"> Clear</button> |
+      <button type="button" style="background-color:#e75480 ; " (click)="delete()" class="btn btn-danger" *ngIf="id !== null" > Delete</button> 
+      <button type="button" style="background-color:#e75480 ; " (click)="cancel()"  class="btn btn-danger" *ngIf="id == null && user == false" > Cancel</button> 
+  </div>
+</form>
